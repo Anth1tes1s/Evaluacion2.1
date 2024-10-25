@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/"></ion-back-button>
+    </ion-buttons>
+    <ion-title class="ion-text-center">Inicio Usuarios</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-button (click)="registrarConductor()" expand="full">Registro Conductor</ion-button>
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Información del Viaje</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <p>No hay información disponible</p>
+    </ion-card-content>
+  </ion-card>
+
+  <div>
+    <ion-button (click)="solicitarViaje()" expand="full">Solicitar viaje</ion-button>
+    <ion-button (click)="cancelarViaje()" expand="full">Cancelar viaje</ion-button>
+  </div>
+</ion-content>
