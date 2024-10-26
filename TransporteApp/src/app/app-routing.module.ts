@@ -35,6 +35,10 @@ const routes: Routes = [
     path: 'inicioconductor',
     loadChildren: () => import('./pages/inicioconductor/inicioconductor.module').then(m => m.InicioconductorPageModule)
   },
+  {
+    path: 'servicio',
+    loadChildren: () => import('./pages/servicio/servicio.module').then( m => m.ServicioPageModule)
+  },
 ];
 
 @NgModule({

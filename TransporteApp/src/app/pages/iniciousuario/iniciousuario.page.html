@@ -3,24 +3,37 @@
     <ion-buttons slot="start">
       <ion-back-button defaultHref="/"></ion-back-button>
     </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-button fill="clear" (click)="registrarConductor()">
+        Registro Conductor
+      </ion-button>
+    </ion-buttons>
     <ion-title class="ion-text-center">Inicio Usuarios</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <ion-button (click)="registrarConductor()" expand="full">Registro Conductor</ion-button>
-
   <ion-card>
     <ion-card-header>
       <ion-card-title>Información del Viaje</ion-card-title>
     </ion-card-header>
     <ion-card-content>
-      <p>No hay información disponible</p>
+      <ion-item>
+        <ion-label position="floating">Dirección de Origen</ion-label>
+        <ion-input type="text" [(ngModel)]="origen"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Dirección de Destino</ion-label>
+        <ion-input type="text" [(ngModel)]="destino"></ion-input>
+      </ion-item>
+      <ion-button (click)="calcularRuta()" expand="full">Calcular Ruta</ion-button>
+      <p *ngIf="distanciaEstimada > 0">Distancia: {{ distanciaEstimada }} km</p>
+      <p *ngIf="precio > 0">Precio: ${{ precio }}</p>
+
+      <!-- Botón para confirmar la ruta -->
+      <ion-button (click)="confirmarRuta()" *ngIf="distanciaEstimada > 0" expand="full">CONFIRMAR RUTA</ion-button>
     </ion-card-content>
   </ion-card>
 
-  <div>
-    <ion-button (click)="solicitarViaje()" expand="full">Solicitar viaje</ion-button>
-    <ion-button (click)="cancelarViaje()" expand="full">Cancelar viaje</ion-button>
-  </div>
+  <div id="map" style="height: 400px; width: 100%;"></div> <!-- Contenedor para el mapa -->
 </ion-content>

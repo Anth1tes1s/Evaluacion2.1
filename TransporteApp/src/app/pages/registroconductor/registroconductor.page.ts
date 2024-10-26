@@ -8,34 +8,36 @@ import { Router } from '@angular/router';
   styleUrls: ['./registroconductor.page.scss'],
 })
 export class RegistroconductorPage {
-
+  nombre: string = '';
   rut: string = '';
   matricula: string = '';
   tipoVehiculo: string = '';
+  modeloVehiculo: string = '';
+  colorVehiculo: string = '';
 
   constructor(private alertController: AlertController, private router: Router) {}
 
   async registrarConductor() {
     // Validar que los campos no estén vacíos
-    if (!this.rut || !this.matricula || !this.tipoVehiculo) {
+    if (!this.nombre || !this.rut || !this.matricula || !this.tipoVehiculo || !this.modeloVehiculo || !this.colorVehiculo) {
       const alert = await this.alertController.create({
         header: 'Error',
         message: 'Por favor, complete todos los campos.',
         buttons: ['OK']
       });
       await alert.present();
-      return; // Detener la ejecución si hay campos vacíos
+      return;
     }
 
     // Aquí puedes agregar la lógica para guardar el conductor (ejemplo en un servicio)
 
     const alert = await this.alertController.create({
       header: 'Registro Exitoso',
-      message: 'Conductor registrado correctamente :D.',
+      message: 'Conductor registrado correctamente.',
       buttons: [{
         text: 'OK',
         handler: () => {
-          this.router.navigate(['/inicioconductor']); // Redirigir al usuario a la página de inicio del conductor
+          this.router.navigate(['/inicioconductor']); // Redirigir al inicio del conductor
         }
       }]
     });
