@@ -38,6 +38,10 @@ const routes: Routes = [
   {
     path: 'servicio',
     loadChildren: () => import('./pages/servicio/servicio.module').then( m => m.ServicioPageModule)
+  }, 
+  {
+    path: 'servicioconductor',
+    loadChildren: () => import('./pages/servicioconductor/servicioconductor.module').then( m => m.ServicioconductorPageModule)
   },
 ];
 
